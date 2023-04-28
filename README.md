@@ -1,0 +1,1 @@
+Develop a meeting scheduling and management system that utilizes NFTs or tokens on the Filecoin network. Participants need to hold specific NFTs or tokens to gain access to scheduled meetings or virtual conference rooms powered by Huddle01. This creates a unique and secure token-gated meeting experience.
