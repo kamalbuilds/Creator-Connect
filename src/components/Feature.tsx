@@ -64,7 +64,7 @@ import {
       <Box p={4}>
         <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
           <Heading fontSize={{ base: '2xl', sm: '4xl' }} fontWeight={'bold'}>
-            Short heading
+            Features
           </Heading>
           <Text color={'gray.600'} fontSize={{ base: 'sm', sm: 'lg' }}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis

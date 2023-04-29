@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-
+import Hero from "../components/Hero";
 import { useEventListener, useHuddle01 } from "@huddle01/react";
 import { Audio, Video } from "@huddle01/react/components";
 
@@ -73,6 +73,7 @@ const App = () => {
 
   return (
     <>
+    <Hero />
     <Feature />
     <div className="grid grid-cols-2">
       <div>
