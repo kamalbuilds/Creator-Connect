@@ -2,10 +2,12 @@ import axios from 'axios';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+console.log(process.env.API_KEY,'d');
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { data } = await axios.post(
-      'https://us-central1-nfts-apis.cloudfunctions.net/createroom',
+      'https://iriko.testing.huddle01.com/api/v1/create-room',
       {
         title: 'Huddle01-Test',
         roomLock: false,
@@ -13,12 +15,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       {
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': process.env.API_KEY,
+          'x-api-key': "VwTZ4AGTxme9snANex9tep3NwvVMGfYd",
         },
       }
     );
 
     res.status(200).json(data);
+    console.log(data);
   } catch (error) {
     res.status(500).json(error);
   }

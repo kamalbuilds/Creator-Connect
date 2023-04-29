@@ -18,7 +18,6 @@ const App = () => {
   }, [router.query.roomId?.toString()]);
 
   useRecorder(roomId, process.env.NEXT_PUBLIC_PROJECT_ID || "");
-
   return (
     <div className="grid grid-cols-2">
       <div>

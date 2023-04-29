@@ -2,8 +2,6 @@ import React, { useRef, useState } from "react";
 
 import { useEventListener, useHuddle01 } from "@huddle01/react";
 import { Audio, Video } from "@huddle01/react/components";
-/* Uncomment to see the Xstate Inspector */
-// import { Inspect } from '@huddle01/react/components';
 
 import {
   useAudio,
@@ -18,6 +16,7 @@ import {
 import { useDisplayName } from "@huddle01/react/app-utils";
 
 import Button from "../components/Button";
+import Feature from "../components/Feature";
 
 const App = () => {
   // refs
@@ -27,10 +26,9 @@ const App = () => {
 
   const [roomId, setRoomId] = useState("");
   const [displayNameText, setDisplayNameText] = useState("Guest");
-  const [projectId, setProjectId] = useState(
-    process.env.NEXT_PUBLIC_PROJECT_ID || ""
-  );
+  const [projectId, setProjectId] = useState(process.env.NEXT_PUBLIC_PROJECT_ID || "");
   const [accessToken, setAccessToken] = useState("");
+  console.log(process.env.API_KEY,process.env.NEXT_PUBLIC_PROJECT_ID,projectId,'d');
 
   const { initialize } = useHuddle01();
   const { joinLobby } = useLobby();
@@ -74,15 +72,11 @@ const App = () => {
   });
 
   return (
+    <>
+    <Feature />
     <div className="grid grid-cols-2">
       <div>
-        <h1 className="text-6xl font-bold">
-          Welcome to{" "}
-          <a className="text-blue-600" href="https://huddle01.com">
-            Huddle01 SDK!
-          </a>
-        </h1>
-
+        <h1 className="text-center">Creator Connect</h1>
         <h2 className="text-2xl">Room State</h2>
         <h3 className="break-words">{JSON.stringify(state.value)}</h3>
 
@@ -260,7 +254,6 @@ const App = () => {
         {/* <Inspect /> */}
       </div>
       <div>
-        Me Video:
         <video ref={videoRef} autoPlay muted></video>
         <div className="grid grid-cols-4">
           {Object.values(peers)
@@ -284,6 +277,7 @@ const App = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

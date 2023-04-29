@@ -7,15 +7,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.19",
+    "@chakra-ui/react": "^2.6.0",
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
     "@huddle01/react": "^0.0.9",
     "@xstate/inspect": "^0.7.1",
     "@xstate/react": "^3.2.1",
     "axios": "^1.3.4",
+    "framer-motion": "^10.12.4",
     "jotai": "^2.0.2",
     "jotai-xstate": "^0.2.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "ws": "^8.0.0",
     "xstate": "^4.36.0"
   },
