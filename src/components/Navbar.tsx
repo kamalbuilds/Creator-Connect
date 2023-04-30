@@ -1,28 +1,18 @@
-import { ReactNode } from 'react';
-import {
-  Box,
-  Flex,
-  Avatar,
-  Link,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  Center,
-  HStack
-} from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import StaticImage  from 'next/image';
+import { Box, Flex, HStack, Link, Stack, useColorMode, useColorModeValue, useDisclosure, Avatar, Menu, MenuButton, MenuList, MenuDivider, MenuItem, Center } from '@chakra-ui/react';
+import { ReactNode } from 'react';
+import { useRouter } from 'next/router';
+import StaticImage from 'next/image';
 import clogo from "../asset/clogo.png";
+import { Button } from '@chakra-ui/button';
 
-const Links = ['Dashboard', 'Projects', 'Team'];
-const NavLink = ({ children }: { children: ReactNode }) => (
+const Links = [
+  { label: 'Dashboard', href: '/dashboard' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Team', href: '/team' },
+];
+
+const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
     px={2}
     py={1}
@@ -31,7 +21,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={href}>
     {children}
   </Link>
 );
@@ -39,6 +29,8 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -50,7 +42,9 @@ export default function Navbar() {
               spacing={4}
               display={{ base: 'none', md: 'flex' }}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.label} href={link.href}>
+                  {link.label}
+                </NavLink>
               ))}
             </HStack>
           </HStack>

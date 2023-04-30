@@ -1,21 +1,10 @@
 import React, { useRef, useState } from "react";
-import Hero from "../components/Hero";
 import { useEventListener, useHuddle01 } from "@huddle01/react";
 import { Audio, Video } from "@huddle01/react/components";
-
-import {
-  useAudio,
-  useLobby,
-  useMeetingMachine,
-  usePeers,
-  useRoom,
-  useVideo,
-  useRecording,
-} from "@huddle01/react/hooks";
-
+import { useEffect} from "react";
+import { useAudio, useLobby, useMeetingMachine, usePeers, useRoom, useVideo, useRecording } from "@huddle01/react/hooks";
 import axios from "axios";
 import { useDisplayName } from "@huddle01/react/app-utils";
-
 import Button from "../components/Button";
 
 const App = () => {
@@ -28,6 +17,7 @@ const App = () => {
   const [displayNameText, setDisplayNameText] = useState("Guest");
   const [projectId, setProjectId] = useState(process.env.NEXT_PUBLIC_PROJECT_ID || "");
   const [accessToken, setAccessToken] = useState("");
+  // accessToken is used for creating token-gated rooms
   console.log(process.env.API_KEY,process.env.NEXT_PUBLIC_PROJECT_ID,projectId,'d');
 
   const { initialize } = useHuddle01();
@@ -103,12 +93,19 @@ const App = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    // its preferable to use env vars to store projectId
+    initialize(projectId || "");
+    console.log(projectId,"dsds");
+  }, []);
+ 
   return (
     <>
     <div className="grid grid-cols-2">
       <div>
         <h2 className="text-2xl">Room State</h2>
-        <button onClick={handleCreateRoom}>Create Room</button>
+        <Button onClick={handleCreateRoom}>Create Room</Button>
         <h3 className="break-words">{JSON.stringify(state.value)}</h3>
 
         <h2 className="text-2xl">Me Id</h2>
@@ -133,23 +130,6 @@ const App = () => {
           {JSON.stringify(state.context.consumers)}
         </div>
 
-        <h2 className="text-3xl text-blue-500 font-extrabold">Idle</h2>
-        <input
-          type="text"
-          placeholder="Your Project Id"
-          value={projectId}
-          onChange={(e) => setProjectId(e.target.value)}
-          className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none mr-2"
-        />
-        <Button
-          disabled={!initialize.isCallable}
-          onClick={() => {
-            initialize(projectId);
-          }}
-        >
-          INIT
-        </Button>
-
         <br />
         <br />
         <h2 className="text-3xl text-red-500 font-extrabold">Initialized</h2>
@@ -158,14 +138,14 @@ const App = () => {
           placeholder="Your Room Id"
           value={roomId}
           onChange={(e) => setRoomId(e.target.value)}
-          className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none mr-2"
+          className="border-2 border-gray-300 h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none mr-2"
         />
         <input
           type="text"
-          placeholder="Your Access Token (optional)"
+          placeholder="Your Access Token (Token gated rooms only)"
           value={accessToken}
           onChange={(e) => setAccessToken(e.target.value)}
-          className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rpnounded-lg text-sm focus:outline-none mr-2"
+          className="border-2 border-gray-300 h-10 px-5 pr-16 rpnounded-lg text-sm focus:outline-none mr-2"
         />
         <Button
           disabled={!joinLobby.isCallable}
@@ -185,7 +165,7 @@ const App = () => {
             placeholder="Your Room Id"
             value={displayNameText}
             onChange={(e) => setDisplayNameText(e.target.value)}
-            className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none mr-2"
+            className="border-2 border-gray-300  h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none mr-2"
           />
           <Button
             disabled={!setDisplayName.isCallable}
@@ -193,7 +173,7 @@ const App = () => {
               setDisplayName(displayNameText);
             }}
           >
-            {`SET_DISPLAY_NAME error: ${displayNameError}`}
+            SET_DISPLAY_NAME
           </Button>
           <Button
             disabled={!fetchVideoStream.isCallable}
@@ -291,7 +271,7 @@ const App = () => {
             .filter((peer) => peer.cam)
             .map((peer) => (
               <>
-                role: {peer.role}
+                role: {peer.role} <br />
                 <Video
                   key={peer.peerId}
                   peerId={peer.peerId}
