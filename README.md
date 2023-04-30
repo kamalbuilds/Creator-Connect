@@ -1,6 +1,6 @@
 # CreatorConnect
 
-Introducing the "CreatorConnect" platform, an innovative solution that empowers creators to easily create and thrive within their community. By combining the features of pay-per-view and an online event platform, we offer creators a comprehensive suite of tools to monetize their content and engage with their audience.
+Introducing the "CreatorConnect" platform, an innovative solution that empowers creators to easily create and build their community. By combining the features of pay-per-view and an online event platform, we offer creators a comprehensive suite of tools to monetize their content and engage with their audience.
 
 Using the Huddle01 SDK, creators can effortlessly record and upload their videos or podcasts onto the platform. The content is securely stored on Filecoin, ensuring durability and accessibility. To monetize their content, creators can implement a pay-per-view model, where viewers pay a fee to access their exclusive videos or podcasts. This pay-per-view feature is seamlessly integrated into the platform, enabling creators to earn revenue directly from their content.
 
@@ -10,9 +10,9 @@ By combining pay-per-view and the NFT gated event platform, CreatorConnect empow
 
 Moreover, CreatorConnect provides creators with comprehensive analytics and insights into their audience's preferences and behaviors. This valuable data enables creators to refine their content strategy, tailor their offerings to meet their community's demands, and further enhance their success.
 
-Overall, CreatorConnect revolutionizes the way creators create and thrive within their community. By seamlessly integrating pay-per-view functionality, secure storage on Filecoin, and an NFT gated event platform, we provide creators with the tools they need to monetize their content, engage with their audience, and establish a sustainable career in the digital landscape.
+Overall, CreatorConnect revolutionizes the way creators create and build their communities. By seamlessly integrating pay-per-view functionality, secure storage on Filecoin, and an NFT gated event platform, we provide creators with the tools they need to monetize their content, engage with their audience, and establish a sustainable career in the digital landscape.
 
-How will this be more effective than Ytb
+How will this be more effective than Ytb ?
 
 While uploading videos on YouTube is a popular choice for content creators, the CreatorConnect platform offers several distinct advantages that make it more effective in certain scenarios:
 

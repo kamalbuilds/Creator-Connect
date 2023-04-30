@@ -23,7 +23,7 @@ import StaticImage  from 'next/image';
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            Meeting scheduling{' '}
+            Connecting with Creators{' '}
             <Text as={'span'} color={'orange.400'}>
               made easy
             </Text>
