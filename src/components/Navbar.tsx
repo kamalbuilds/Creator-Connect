@@ -18,6 +18,8 @@ import {
   HStack
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import StaticImage  from 'next/image';
+import clogo from "../asset/clogo.png";
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 const NavLink = ({ children }: { children: ReactNode }) => (
@@ -42,7 +44,7 @@ export default function Navbar() {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
+            <StaticImage src={clogo} alt="Logo" width={250} height={50} />
             <HStack
               as={'nav'}
               spacing={4}
