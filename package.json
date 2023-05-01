@@ -23,7 +23,6 @@
     "jotai": "^2.0.2",
     "jotai-xstate": "^0.2.0",
     "next": "latest",
-    "next-dropzone": "^0.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",

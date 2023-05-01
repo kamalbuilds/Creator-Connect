@@ -4042,11 +4042,6 @@
   "resolved" "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
   "version" "3.3.6"
 
-"next-dropzone@^0.0.0":
-  "integrity" "sha512-oXN4+7cPVp9BBjy6jTVf2LSq9HBW4WZB4v7ujQM4cw4xWGMT2/+GRQaQLmiQXzLQ7Pzia2QJ5Xg3vhxVdazEPw=="
-  "resolved" "https://registry.npmjs.org/next-dropzone/-/next-dropzone-0.0.0.tgz"
-  "version" "0.0.0"
-
 "next@latest":
   "integrity" "sha512-eByWRxPzKHs2oQz1yE41LX35umhz86ZSZ+mYyXBqn2IBi2hyUqxBA88avywdr4uyH+hCJczegGsDGWbzQA5Rqw=="
   "resolved" "https://registry.npmjs.org/next/-/next-13.3.1.tgz"

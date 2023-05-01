@@ -1,27 +1,33 @@
+//@ts-nocheck
 import React, {useRef} from "react";
+import { useState } from "react";
 import { ethers } from 'ethers';
 import lighthouse from '@lighthouse-web3/sdk';
 import { Button } from "@chakra-ui/react";
 
-function Upload() {
+export default function Upload() {
     const fileInputRef = useRef(null);
+    const encryptedfileInputRef = useRef(null);
+    const [sig, setSig] = useState(null);
 
   const encryptionSignature = async() =>{
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = await provider.getSigner();
-    const address = await signer.getAddress();
-    console.log(address,"address");
-    const messageRequested = (await lighthouse.getAuthMessage(address)).data.message;
-    const signedMessage = await signer.signMessage(messageRequested);
-    console.log(signedMessage,"signedMessage");
-    return({
-      signedMessage: signedMessage,
-      publicKey: address
-    });
+    if(window){
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = await provider.getSigner();
+        const address = await signer.getAddress();
+        console.log(address,"address");
+        const messageRequested = (await lighthouse.getAuthMessage(address)).data.message;
+        const signedMessage = await signer.signMessage(messageRequested);
+        console.log(signedMessage,"signedMessage");
+        return({
+          signedMessage: signedMessage,
+          publicKey: address
+        });
+    }
   }
 
-  const progressCallback = (progressData) => {
-    let percentageDone = 100 - (progressData?.total / progressData?.uploaded)?.toFixed(2);
+  const progressCallback = (progressData : any) => {
+    let percentageDone = 100 - Number((progressData?.total / progressData?.uploaded)?.toFixed(2));
     console.log(percentageDone);
   };
 
@@ -31,8 +37,7 @@ function Upload() {
       console.error('No file selected');
       return;
     }
-
-    const output = await lighthouse.upload(file, "api", progressCallback);
+    const output = await lighthouse.upload(file, "59424315-565a-4f1d-8d60-b8c6de63bae2", progressCallback);
     console.log('File Status:', output);
 
     console.log('Visit at https://gateway.lighthouse.storage/ipfs/' + output.data.Hash);
@@ -43,9 +48,12 @@ function Upload() {
     console.log("uploading ..");
     try {
       const sig = await encryptionSignature();
+      setSig(sig);
+      const file = encryptedfileInputRef.current.files[0]; 
+      console.log(file,sig,"file and sig");
       const response = await lighthouse.uploadEncrypted(
-        e,
-        "",
+        file,
+        "59424315-565a-4f1d-8d60-b8c6de63bae2",
         sig.publicKey,
         sig.signedMessage,
         progressCallback
@@ -66,13 +74,12 @@ function Upload() {
   }
 
   return (
-    <div className="App">
-      <input type="file" />
-      <Button onClick= {(e)=>uploadFileEncrypted(e)}>Upload</Button>
-      <input type="file" ref={fileInputRef} />
-      <Button onClick= {(e)=>uploadFile(e)}>Upload File</Button>
+    <div className="my-8">
+        <h1>Now upload your Recordings</h1>
+        <input type="file" ref={encryptedfileInputRef} className="mb-4" />
+        <Button onClick={(e) => uploadFileEncrypted(e)} className="mr-4">Upload Encrypted File</Button>
+        <input type="file" ref={fileInputRef} className="mb-4" />
+        <Button onClick={uploadFile}>Upload File</Button>
     </div>
   );
 }
-
-export default Upload;
