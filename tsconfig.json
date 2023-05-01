@@ -16,7 +16,8 @@
     "incremental": true,
     "paths": {
       "@chakra-ui/react": ["./node_modules/@chakra-ui/react"],
-      "@chakra-ui/icons": ["./node_modules/@chakra-ui/icons"]
+      "@chakra-ui/icons": ["./node_modules/@chakra-ui/icons"],
+      "next-dropzone": ["./node_modules/next-dropzone"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

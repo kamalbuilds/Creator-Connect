@@ -5,10 +5,11 @@ import { useRouter } from 'next/router';
 import StaticImage from 'next/image';
 import clogo from "../asset/clogo.png";
 import { Button } from '@chakra-ui/button';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const Links = [
   { label: 'Dashboard', href: '/dashboard' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Meeting', href: '/meeting' },
   { label: 'Team', href: '/team' },
 ];
 
@@ -69,6 +70,7 @@ export default function Navbar() {
                 </MenuButton>
                 <MenuList alignItems={'center'}>
                   <br />
+                  <ConnectButton />
                   <Center>
                     <Avatar
                       size={'2xl'}
