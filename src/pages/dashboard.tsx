@@ -6,6 +6,7 @@ import { useAudio, useLobby, useMeetingMachine, usePeers, useRoom, useVideo, use
 import axios from "axios";
 import { useDisplayName } from "@huddle01/react/app-utils";
 import Button from "../components/Button";
+import Router from "next/router";
 
 const App = () => {
   // refs
@@ -61,6 +62,31 @@ const App = () => {
     console.log("lobby:joined");
   });
 
+  const createiframe = async () => {
+    try {
+    
+    const response = await axios.post(
+      'https://iriko.testing.huddle01.com/api/v1/create-iframe-room',
+      {
+        title: 'Huddle01-Test',
+        roomLocked: true
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': "VwTZ4AGTxme9snANex9tep3NwvVMGfYd",
+        },
+      }
+    );
+    console.log(response.data.data);
+    const roomId = response.data.data.roomId;
+    console.log(roomId);
+    Router.push(`/${roomId}`);
+    } catch (error) {
+      throw error;
+    }
+  }
+
   const createRoom = async () => {
     try {
       const { data } = await axios.post(
@@ -72,11 +98,11 @@ const App = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': "VwTZ4AGTxme9snANex9tep3NwvVMGfYd",
+            'x-api-key': "",
           },
         }
       );
-  
+        
       return data;
     } catch (error) {
       throw error;
@@ -106,7 +132,9 @@ const App = () => {
       <div>
         <h2 className="text-2xl">Room State</h2>
         <Button onClick={handleCreateRoom}>Create Room</Button>
-        <h3 className="break-words">{JSON.stringify(state.value)}</h3>
+
+        <Button onClick={createiframe}>Create Iframe</Button>
+        <h3 className="break-words my-4">{JSON.stringify(state.value)}</h3>
 
         <h2 className="text-2xl">Me Id</h2>
         <div className="break-words">
