@@ -1368,10 +1368,10 @@
   "resolved" "https://registry.npmjs.org/@huddle01/huddle01-iframe/-/huddle01-iframe-0.0.9.tgz"
   "version" "0.0.9"
 
-"@huddle01/react@^0.0.9":
-  "integrity" "sha512-TlmqPa6loZ16YPfHbwezAASY4GJQ/5oyBrjkmiDStzKrF9ja/z1bK8INL//VqFYtg73/VK4yU0OVUSgNqPA+7A=="
-  "resolved" "https://registry.npmjs.org/@huddle01/react/-/react-0.0.9.tgz"
-  "version" "0.0.9"
+"@huddle01/react@^0.0.10":
+  "integrity" "sha512-LqLmnEBsRNWBufN3UFiAETW6rAQwiVauHN/UEkcURcCLZFew3ZnSPn90lVREuGZ5sptvOn7dxt1WG+Ww/TOOcA=="
+  "resolved" "https://registry.npmjs.org/@huddle01/react/-/react-0.0.10.tgz"
+  "version" "0.0.10"
   dependencies:
     "@huddle01/web-core" "^0.0.6"
     "@xstate/inspect" "^0.7.1"
