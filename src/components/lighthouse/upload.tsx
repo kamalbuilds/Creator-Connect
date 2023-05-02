@@ -1,7 +1,6 @@
 //@ts-nocheck
 import React, {useRef} from "react";
 import { useState } from "react";
-import { ethers } from 'ethers';
 import lighthouse from '@lighthouse-web3/sdk';
 import { Button } from "@chakra-ui/react";
 import {
@@ -40,20 +39,21 @@ export default function Upload() {
       console.log(percentage);
     };
 
-    const uploadFile = async (e) => {
-      e.preventDefault();
-      if (!file) {
+    const uploadFile = async (e : any) => {
+      // e.preventDefault();
+      if (!e.target.files || e.target.files.length === 0) {
         console.error('No file selected');
         return;
       }
-    
+      console.log(e,"event");
       const output = await lighthouse.upload(
         e,
         process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY as string,
         progressCallback
       );
       console.log('File Status:', output);
-    
+      alert("File uploaded successfully", output.data.Hash);
+
       console.log('Visit at https://gateway.lighthouse.storage/ipfs/' + output.data.Hash);
     };
     
@@ -70,16 +70,9 @@ export default function Upload() {
         sig.signedMessage as string,
         progressCallback
       );
-      console.log(response);
-      /*
-        output:
-          data: {
-            Name: "c04b017b6b9d1c189e15e6559aeb3ca8.png",
-            Size: "318557",
-            Hash: "QmcuuAtmYqbPYmPx3vhJvPDi61zMxYvJbfENMjBQjq7aM3"
-          }
-        Note: Hash in response is CID.
-      */
+      alert("File uploaded successfully", response.data.Hash);
+      console.log(response.data.Hash);
+
     } catch (error) {
       console.error("Error uploading file:", error);
     }
@@ -88,6 +81,7 @@ export default function Upload() {
   function handleFileChange (e : any) {
     const file = e.target.files[0];
     setFile(file);
+    console.log(file,"file set");
   }
 
   return (
@@ -96,23 +90,22 @@ export default function Upload() {
       <div className="flex items-center my-4">
         <input
                 accept="application/pdf , text/plain"
-                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                className="block text-sm text-gray-900 border border-gray-300  cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                 id="file"
                 type="file"
-                onChange={handleFileChange}
+                onChange={(e)=> uploadFile(e)}
               />
-          <Button onClick={(e) => uploadFile(e)}>Upload File</Button>
+          <Button className="ms-4">Upload File</Button>
       </div>
       <div className="flex items-center my-4">
-        <input type="file" ref={encryptedfileInputRef} className="" />
-        {/* <input
+        <input
               accept="application/pdf , text/plain"
-              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+              className="block text-sm text-gray-900 border border-gray-300 cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
               id="file"
               type="file"
-              onChange={handleFileChange}
-            /> */}
-        <Button onClick={(e) => uploadFileEncrypted(e)} className="">
+              onChange={(e) => uploadFileEncrypted(e)}
+            />
+        <Button  className="ms-4">
           Upload Encrypted File
         </Button>
       </div>
