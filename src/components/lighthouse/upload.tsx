@@ -4,6 +4,13 @@ import { useState } from "react";
 import { ethers } from 'ethers';
 import lighthouse from '@lighthouse-web3/sdk';
 import { Button } from "@chakra-ui/react";
+import {
+  useAccount,
+  useContract,
+  useProvider,
+  useSigner,
+  useBalance,
+} from "wagmi";
 
 export default function Upload() {
     const fileInputRef = useRef(null);
@@ -74,12 +81,18 @@ export default function Upload() {
   }
 
   return (
-    <div className="my-8">
-        <h1>Now upload your Recordings</h1>
-        <input type="file" ref={encryptedfileInputRef} className="mb-4" />
-        <Button onClick={(e) => uploadFileEncrypted(e)} className="mr-4">Upload Encrypted File</Button>
+    <div className="my-8 text-center">
+      <h1 className="text-center text-indigo-400 text-2xl">Now upload your Recordings</h1>
+      <div className="flex items-center my-4">
         <input type="file" ref={fileInputRef} className="mb-4" />
         <Button onClick={uploadFile}>Upload File</Button>
+      </div>
+      <div className="flex items-center my-4">
+        <input type="file" ref={encryptedfileInputRef} className="" />
+        <Button onClick={(e) => uploadFileEncrypted(e)} className="">
+          Upload Encrypted File
+        </Button>
+      </div>
     </div>
   );
 }

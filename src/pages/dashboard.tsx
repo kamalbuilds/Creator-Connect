@@ -7,6 +7,7 @@ import axios from "axios";
 import { useDisplayName } from "@huddle01/react/app-utils";
 import Button from "../components/Button";
 import Router from "next/router";
+import TokenGated from "../components/TokenGated";
 
 const App = () => {
   // refs
@@ -98,7 +99,7 @@ const App = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'x-api-key': "",
+            'x-api-key': "VwTZ4AGTxme9snANex9tep3NwvVMGfYd",
           },
         }
       );
@@ -135,7 +136,7 @@ const App = () => {
 
         <Button onClick={createiframe}>Create Iframe</Button>
         <h3 className="break-words my-4">{JSON.stringify(state.value)}</h3>
-
+        <TokenGated />
         <h2 className="text-2xl">Me Id</h2>
         <div className="break-words">
           {JSON.stringify(state.context.peerId)}

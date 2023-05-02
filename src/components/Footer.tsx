@@ -12,7 +12,6 @@ import {
 import StaticImage  from 'next/image';
 import clogo from "../asset/clogo.png";
   
-  
   const SocialButton = ({
     children,
     label,

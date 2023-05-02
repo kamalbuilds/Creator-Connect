@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { HuddleIframe, IframeConfig } from "@huddle01/huddle01-iframe";
 import Upload from "../components/lighthouse/upload";
 import { useRouter } from "next/router";
+import AccessControl from "../components/lighthouse/acesscontrol";
+import { Box } from "@chakra-ui/react";
 
 
 
@@ -30,13 +32,16 @@ export default function Meeting() {
 
     return (
         <>
-            <p className="fixed left-0 top-0 flex justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 min-w-fit mr-4">
+            <p className="fixed flex justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 min-w-fit mr-4">
             Room ID:&nbsp;
             <code className="font-mono font-bold">{roomIdFromUrl}</code>
             </p>
             <div>
             <HuddleIframe config={iframeConfig} />
-            <Upload />
+            <Box className="flex justify-center items-center">
+                <Upload />
+                <AccessControl />
+            </Box>
         </div>
         </>
     );
