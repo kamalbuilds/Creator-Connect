@@ -31,7 +31,7 @@ export default async (
         Authorization: token,
       },
       onUploadProgress: function (progressEvent) {
-        const _progress = Math.round(progressEvent.loaded / progressEvent.total)
+        const _progress = Math.round(progressEvent.loaded / 100)
         uploadProgressCallback({
           progress: _progress,
           total: progressEvent.total,

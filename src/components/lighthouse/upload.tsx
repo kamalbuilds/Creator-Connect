@@ -14,6 +14,7 @@ import {
 import { createEvent } from "react-dom/test-utils";
 
 export default function Upload() {
+    const encryptedfileInputRef = useRef(null);
     const [sig, setSig] = useState(null);
     const [file , setFile ] = useState<any>()
     const provider = useProvider();
@@ -45,14 +46,11 @@ export default function Upload() {
         console.error('No file selected');
         return;
       }
-      // const syntheticEvent = createEvent("Event");
-      const eventCopy = { ...e };
-      delete eventCopy.persist; 
+    
       const output = await lighthouse.upload(
-        file,
+        e,
         process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY as string,
-        progressCallback,
-        eventCopy
+        progressCallback
       );
       console.log('File Status:', output);
     
@@ -60,16 +58,15 @@ export default function Upload() {
     };
     
 
-console.log(process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY,"LIGHTHOUSE_API_KEY")
   /* Deploy file along with encryption */
   const uploadFileEncrypted = async(e : any) =>{
     console.log("uploading ..");
     try {
       const sig = await encryptionSignature();
       const response = await lighthouse.uploadEncrypted(
-        file,
-        sig.publicKey as string,
+        e,
         process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY as string,
+        sig.publicKey as string,
         sig.signedMessage as string,
         progressCallback
       );
@@ -104,17 +101,17 @@ console.log(process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY,"LIGHTHOUSE_API_KEY")
                 type="file"
                 onChange={handleFileChange}
               />
-          <Button onClick={uploadFile}>Upload File</Button>
+          <Button onClick={(e) => uploadFile(e)}>Upload File</Button>
       </div>
       <div className="flex items-center my-4">
-        {/* <input type="file" ref={encryptedfileInputRef} className="" /> */}
-        <input
+        <input type="file" ref={encryptedfileInputRef} className="" />
+        {/* <input
               accept="application/pdf , text/plain"
               className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
               id="file"
               type="file"
               onChange={handleFileChange}
-            />
+            /> */}
         <Button onClick={(e) => uploadFileEncrypted(e)} className="">
           Upload Encrypted File
         </Button>
