@@ -363,7 +363,7 @@ const App = () => {
               <Button
                 disabled={!startRecording.isCallable}
                 onClick={() =>
-                  startRecording(`${window.location.href}rec/${roomId}`)
+                  startRecording(`https://creatorconnect.vercel.app/rec/${roomId}`)
                 }
               >
                 {`START_RECORDING error: ${error}`}

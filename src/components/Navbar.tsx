@@ -10,7 +10,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 const Links = [
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Meeting', href: '/meeting' },
-  { label: 'Team', href: '/team' },
+  { label: 'Recording', href: '/recording' },
 ];
 
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
@@ -37,7 +37,9 @@ export default function Navbar() {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <HStack spacing={8} alignItems={'center'}>
-            <StaticImage src={clogo} alt="Logo" width={250} height={50} />
+            <Link href="/">
+              <StaticImage src={clogo} alt="Logo" width={250} height={50} />
+            </Link>
             <HStack
               as={'nav'}
               spacing={4}
