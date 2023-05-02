@@ -42,7 +42,7 @@ function AccessControl() {
     const aggregator = "([1])";
     const { publicKey, signedMessage } = await encryptionSignature();
 
-    const response = await lighthouse.accessCondition(
+    const response = await lighthouse.applyAccessCondition(
       publicKey,
       cid,
       signedMessage,
