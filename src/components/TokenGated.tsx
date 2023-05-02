@@ -4,7 +4,6 @@ import { Input, Select, Button, Box} from "@chakra-ui/react";
 const tokenTypes = ["ERC20", "ERC721", "ERC1155", "SPL", "BEP20"];
 const chains = ["ETHEREUM", "COSMOS", "SOLANA", "TEZOS", "BSC"];
 const add = "0x4d224452801ACEd8B2F0aebE155379bb5D594381";
-const API_KEY = "VwTZ4AGTxme9snANex9tep3NwvVMGfYd";
 
 export default function TokenGated() {
   const [roomId, setRoomId] = useState("");
@@ -28,7 +27,7 @@ export default function TokenGated() {
         {
             headers: {
               'Content-Type': 'application/json',
-              'x-api-key': API_KEY,
+              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
             },
         }
       );

@@ -11,10 +11,9 @@ import {
   useSigner,
   useBalance,
 } from "wagmi";
+import { createEvent } from "react-dom/test-utils";
 
 export default function Upload() {
-    const fileInputRef = useRef(null);
-    const encryptedfileInputRef = useRef(null);
     const [sig, setSig] = useState(null);
     const [file , setFile ] = useState<any>()
     const provider = useProvider();
@@ -46,10 +45,12 @@ export default function Upload() {
         console.error('No file selected');
         return;
       }
-      const eventCopy = { ...e }; // Create a copy of the event object
+      // const syntheticEvent = createEvent("Event");
+      const eventCopy = { ...e };
+      delete eventCopy.persist; 
       const output = await lighthouse.upload(
         file,
-        "59424315-565a-4f1d-8d60-b8c6de63bae2",
+        process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY as string,
         progressCallback,
         eventCopy
       );
@@ -68,7 +69,7 @@ console.log(process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY,"LIGHTHOUSE_API_KEY")
       const response = await lighthouse.uploadEncrypted(
         file,
         sig.publicKey as string,
-        "59424315-565a-4f1d-8d60-b8c6de63bae2" as string,
+        process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY as string,
         sig.signedMessage as string,
         progressCallback
       );
@@ -96,8 +97,14 @@ console.log(process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY,"LIGHTHOUSE_API_KEY")
     <div className="my-8 text-center">
       <h1 className="text-center text-indigo-400 text-2xl">Now upload your Recordings</h1>
       <div className="flex items-center my-4">
-        <input type="file" ref={fileInputRef} className="mb-4" />
-        <Button onClick={uploadFile}>Upload File</Button>
+        <input
+                accept="application/pdf , text/plain"
+                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                id="file"
+                type="file"
+                onChange={handleFileChange}
+              />
+          <Button onClick={uploadFile}>Upload File</Button>
       </div>
       <div className="flex items-center my-4">
         {/* <input type="file" ref={encryptedfileInputRef} className="" /> */}

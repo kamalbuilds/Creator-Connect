@@ -25,6 +25,7 @@ function AccessControl() {
   ]);
 
   const encryptionSignature = async() =>{
+    //@ts-ignore
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const address = await signer.getAddress();
@@ -41,7 +42,7 @@ function AccessControl() {
     const aggregator = "([1])";
     const { publicKey, signedMessage } = await encryptionSignature();
 
-    const response = await lighthouse.applyAccessCondition(
+    const response = await lighthouse.accessCondition(
       publicKey,
       cid,
       signedMessage,
