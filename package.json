@@ -23,6 +23,7 @@
     "jotai": "^2.0.2",
     "jotai-xstate": "^0.2.0",
     "next": "latest",
+    "nft.storage": "^7.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",

@@ -19,11 +19,12 @@ import StaticImage  from 'next/image';
           align={'center'}
           spacing={{ base: 8, md: 10 }}
           py={{ base: 20, md: 28 }}>
-          <Heading
+          <Heading  
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            Connecting with Creators{' '}
+            Connecting with Creators{'  '}
+            <br/>
             <Text as={'span'} color={'orange.400'}>
               made easy
             </Text>

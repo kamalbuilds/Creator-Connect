@@ -20,6 +20,6 @@
       "next-dropzone": ["./node_modules/next-dropzone"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/nft.tsx"],
   "exclude": ["node_modules"]
 }

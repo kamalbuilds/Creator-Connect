@@ -67,26 +67,25 @@ import {
             Features
           </Heading>
           <Text color={'gray.600'} fontSize={{ base: 'sm', sm: 'lg' }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            obcaecati ut cupiditate pariatur, dignissimos, placeat amet officiis.
+            Connect with your creators seamlessly and get access to exclusive content.
           </Text>
         </Stack>
   
         <Container maxW={'5xl'} mt={12}>
           <Flex flexWrap="wrap" gridGap={6} justify="center">
             <Card
-              heading={'Heading'}
+              heading={'Pay per view Content'}
               icon={<Icon as={FcAssistant} w={10} h={10} />}
               description={
-                'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+                'Creators can monetize their content by implementing a pay-per-view model, where viewers pay a fee to access their exclusive videos or podcasts.'
               }
               href={'#'}
             />
             <Card
-              heading={'Heading'}
+              heading={'NFT gated events'}
               icon={<Icon as={FcCollaboration} w={10} h={10} />}
               description={
-                'Lorem ipsum dolor sit amet catetur, adipisicing elit.'
+                'Creators can organize interactive events, such as virtual meetings or live streams, where their community members can engage with them in real-time.'
               }
               href={'#'}
             />
