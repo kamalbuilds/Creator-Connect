@@ -12,15 +12,19 @@ Features
 
 * Secure storage on Filecoin: The platform securely stores creators' content on Filecoin, ensuring durability, accessibility, and protection against content takedowns or policy changes on centralized platforms.
 
-* Tech Stack
+* Share directly to Lenster
+
+![image](https://user-images.githubusercontent.com/95926324/235943778-80a2ae6c-658d-40f1-9608-216f118fddc8.png)
+
+## Tech Stack
 
 The CreatorConnect platform is built using the following technologies:
 
-Huddle01 SDK: Used for effortless recording and uploading of videos or podcasts onto the platform.
+* Huddle01 SDK: Used for effortless recording and uploading of videos or podcasts onto the platform.
 
-Filecoin: Decentralized storage network for secure and durable content storage.
+* Filecoin: Decentralized storage network for secure and durable content storage.
 
-Smart Contracts: Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
+* Smart Contracts: Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
 
 How CreatorConnect is More Effective than YouTube ?
 
