@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import { Box, Heading, Text, Image , Input , Button } from "@chakra-ui/react";
+import { useState } from "react";
 
 const Card = ({ heading, description, imageUrl , videoUrl}) => {
   return (
