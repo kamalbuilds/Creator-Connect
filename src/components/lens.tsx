@@ -9,17 +9,10 @@ function LensShareComponent() {
   const [via, setVia] = useState('');
   const [title, setTitle] = useState('Share your post on Lens 🌿');
 
-  const handleShare = () => {
-    // Perform any actions you want with the share data
-    console.log('Shared Content:', content);
-    console.log('Shared URL:', url);
-    console.log('Shared Hashtags:', hashtags);
-    console.log('Shared Via:', via);
-  };
 
   return (
     <>
-    <Box className='w-80 border-4 mx-40 p-4'>
+    <Box className='w-90 border-4 mx-40 p-4'>
       <Input
         type="text"
         placeholder="Enter content"
@@ -44,7 +37,6 @@ function LensShareComponent() {
         value={via}
         onChange={(e) => setVia(e.target.value)}
       />
-    </Box>
         <div className='mx-40 my-10'>
             <ShareToLens
                 content={content}
@@ -56,6 +48,7 @@ function LensShareComponent() {
                 size={Size.medium}
             />
         </div>
+    </Box>
       </>
   );
 }

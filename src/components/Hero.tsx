@@ -30,9 +30,8 @@ import StaticImage  from 'next/image';
             </Text>
           </Heading>
           <Text color={'gray.500'} maxW={'3xl'}>
-            Never miss a meeting. Never be late for one too. Keep track of your
-            meetings and receive smart reminders in appropriate times. Read your
-            smart “Daily Agenda” every morning.
+            An innovative solution that empowers creators to easily create and build their community. 
+            By combining the features of pay-per-view and an online event platform, we offer creators a comprehensive suite of tools to monetize their content and engage with their audience.
           </Text>
           <Stack spacing={6} direction={'row'}>
             <Button
