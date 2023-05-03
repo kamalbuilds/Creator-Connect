@@ -6,8 +6,8 @@ import { useState } from "react";
 const Card = ({ heading, description, imageUrl , videoUrl}) => {
   return (
     <Box p={4} maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={imageUrl} alt={heading} maxH="200px" objectFit="cover" />
-      <video controls autoPlay className="media">
+      <Image src={imageUrl} alt={heading} maxH="200px" objectFit="cover" className="mx-20"/>
+      <video controls autoPlay className="media my-6">
         <source src={videoUrl} type="video/webm" />
       </video>
       <Box mt={4}>
@@ -36,7 +36,7 @@ const Cards = () => {
 
   const cardsData = [
     {
-      heading: "Software Engineer",
+      heading: "How I owned twitter",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus diam auctor, varius est sit amet, dapibus tortor.",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg",

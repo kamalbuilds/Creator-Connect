@@ -22,9 +22,13 @@ The CreatorConnect platform is built using the following technologies:
 
 * Huddle01 SDK: Used for effortless recording and uploading of videos or podcasts onto the platform.
 
-* Filecoin: Decentralized storage network for secure and durable content storage.
+* Lighhouse : Encryption of the data.
 
-* Smart Contracts: Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
+* * FVM : NFT Contract Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
+
+* Deployed link - https://explorer.glif.io/address/0x983f1200Af39AC6095FF6DaD829c266ADC5B5Cbf/?network=hyperspacenet
+
+Testing of Minting of NFT - https://hyperspace.filfox.info/en/tx/0x7f638f73e4ca85bd14f6539195a3a31f884a90706ccbc71ed428398bca419349
 
 How CreatorConnect is More Effective than YouTube ?
 

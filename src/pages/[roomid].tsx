@@ -5,6 +5,7 @@ import Upload from "../components/lighthouse/upload";
 import { useRouter } from "next/router";
 import AccessControl from "../components/lighthouse/acesscontrol";
 import { Box } from "@chakra-ui/react";
+import LensShareComponent from "../components/lens";
 
 
 
@@ -42,6 +43,7 @@ export default function Meeting() {
                 <Upload />
                 <AccessControl />
             </Box>
+            <LensShareComponent />
         </div>
         </>
     );

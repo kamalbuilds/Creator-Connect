@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.8",
     "@huddle01/huddle01-iframe": "^0.0.9",
     "@huddle01/react": "^0.0.10",
+    "@lens-protocol/widgets-react": "^0.0.11",
     "@lighthouse-web3/sdk": "^0.2.2",
     "@rainbow-me/rainbowkit": "^0.12.12",
     "@xstate/inspect": "^0.7.1",

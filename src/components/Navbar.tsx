@@ -6,10 +6,11 @@ import StaticImage from 'next/image';
 import clogo from "../asset/clogo.png";
 import { Button } from '@chakra-ui/button';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useAccount} from 'wagmi';
 
 const Links = [
   { label: 'Dashboard', href: '/dashboard' },
-  { label: 'Meeting', href: '/meeting' },
+  { label: 'Nft', href: '/nft' },
   { label: 'Recording', href: '/recording' },
 ];
 
@@ -32,6 +33,8 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
 
+  const { address, isConnecting, isDisconnected } = useAccount()
+  console.log(address, 'address');
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -54,6 +57,7 @@ export default function Navbar() {
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
+              <ConnectButton />
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
@@ -71,8 +75,6 @@ export default function Navbar() {
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
-                  <br />
-                  <ConnectButton />
                   <Center>
                     <Avatar
                       size={'2xl'}
@@ -80,9 +82,7 @@ export default function Navbar() {
                     />
                   </Center>
                   <br />
-                  <Center>
-                    <p>Username</p>
-                  </Center>
+                  <p className='text-center'>Hi</p>
                   <br />
                   <MenuDivider />
                   <MenuItem>Your Servers</MenuItem>

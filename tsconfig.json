@@ -17,7 +17,8 @@
     "paths": {
       "@chakra-ui/react": ["./node_modules/@chakra-ui/react"],
       "@chakra-ui/icons": ["./node_modules/@chakra-ui/icons"],
-      "next-dropzone": ["./node_modules/next-dropzone"]
+      "next-dropzone": ["./node_modules/next-dropzone"],
+      "@lens-protocol/widgets-react": ["./node_modules/@lens-protocol/widgets-react"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/nft.tsx"],

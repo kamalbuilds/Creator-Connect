@@ -1,7 +1,6 @@
 // @ts-nocheck
 import { useState, useEffect } from 'react';
-import { NFTStorage, File } from 'nft.storage'
-import { useContract } from 'wagmi';
+import { NFTStorage, File } from 'nft.storage';
 import axios from 'axios';
 import { Box, Button, Input, Spinner, Image, Text, Link } from '@chakra-ui/react';
 import { ethers } from 'ethers';
@@ -26,13 +25,15 @@ function App() {
   const [isWaiting, setIsWaiting] = useState(false);
 
   const loadBlockchainData = async () => {
-    setProvider(provider);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    setProvider(provider)
 
-    const nftContract = useContract("0x983f1200Af39AC6095FF6DaD829c266ADC5B5Cbf", NFT);
+    const network = await provider.getNetwork();
+    console.log(network);
+    const nft = new ethers.Contract("0x983f1200Af39AC6095FF6DaD829c266ADC5B5Cbf", NFT, provider);
     console.log(nft);
-    console.log(nftContract," nftContract");
-    setNFT(nftContract);
-  };
+    setNFT(nft)
+  }
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -115,11 +116,17 @@ function App() {
 
     const signer = await provider.getSigner()
     const transaction = await nft.connect(signer).mint(tokenURI, { value: ethers.utils.parseUnits("1", "ether") })
-    await transaction.wait()
+    await transaction.wait();
+    const eventFilter = nft.filters.Transfer(null, signer.getAddress());
+    const events = await nft.queryFilter(eventFilter);
+    const mintedNFTAddress = events[0].args[2]; // Address of the minted NFT
+    console.log("Minted NFT Address:", mintedNFTAddress);
+
+    console.log(transaction,"transaction");
   }
 
   useEffect(() => {
-    loadBlockchainData()
+    loadBlockchainData();
   }, [])
 
   return (
@@ -152,7 +159,6 @@ function App() {
               <Text mt={2}>{message}</Text>
             </Box>
           ) : null}
-          <Image src={image} alt="AI generated image" />
         </Box>
       </Box>
 
