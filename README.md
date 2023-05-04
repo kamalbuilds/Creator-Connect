@@ -12,9 +12,7 @@ An innovative solution that empowers creators to easily create and build their c
 
 ## Features
 
-* AI generated NFT 🖼️: For giving access to your community.
-
-<img src="https://user-images.githubusercontent.com/95926324/236307435-47cb8d33-d0f6-47b3-9415-fc9d589aa720.png" alt="ai" width="200">
+* <img src="https://user-images.githubusercontent.com/95926324/236307435-47cb8d33-d0f6-47b3-9415-fc9d589aa720.png" alt="ai" width="20"> generated NFT 🖼️: For giving access to your community.
 
 * Pay-per-view functionality 💸: Creators can monetize their content by implementing a pay-per-view model, where viewers pay a fee to access their exclusive videos or podcasts. This feature is seamlessly integrated into the platform, enabling creators to earn revenue directly from their content.
 
