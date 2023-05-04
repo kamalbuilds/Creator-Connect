@@ -84,8 +84,9 @@ function AccessControl() {
                 onChange={handleChainChange}
               >
                 <option value="wallaby">Wallaby</option>
-                <option value="testnet">Testnet</option>
-                {/* Add other options as needed */}
+                <option value="testnet">Hyperspace</option>
+                <option value="testnet">Polygon</option>
+                <option value="testnet">Ethereum</option>
               </Select>
             </div>
             <div>

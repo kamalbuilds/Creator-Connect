@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import { Box, Heading, Text, Image , Input , Button } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 const Card = ({ heading, description, imageUrl , videoUrl}) => {
   return (
@@ -22,7 +22,11 @@ const Card = ({ heading, description, imageUrl , videoUrl}) => {
 
 const Cards = () => {
     const [videoUrl, setVideoUrl] = useState("");
+    const [currentVideoUrl, setCurrentVideoUrl] = useState(videoUrl);
 
+    useEffect(() => {
+      setCurrentVideoUrl(videoUrl);
+    }, [videoUrl]);
     const handleInputChange = (event) => {
       setVideoUrl(event.target.value);
     };
@@ -61,7 +65,7 @@ const Cards = () => {
   return (
     <div>
       <Heading as="h1" size="xl" textAlign="center" mb={8}>
-        Cards
+        Creators
       </Heading>
       <Box display="flex" justifyContent="center" flexWrap="wrap" gap={6}>
         {cardsData.map((card, index) => (
@@ -75,25 +79,21 @@ const Cards = () => {
         ))}
         <Card
           heading="Custom Card"
-          description="Enter a video URL:"
-          videoUrl={videoUrl}
+          description={currentVideoUrl}
+          imageUrl="https://media.licdn.com/dms/image/C560BAQF_MO45e6VgoA/company-logo_200_200/0/1668174998436?e=2147483647&v=beta&t=LsEz-6sJFXTfOhgxRZCQHDk7TH0jy2TBPFLsexA5KI4"
+          videoUrl={currentVideoUrl}
         />
       </Box>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="my-4">
         <Input
           placeholder="Enter video URL"
           value={videoUrl}
           onChange={handleInputChange}
         />
-        <Button type="submit">Add Card</Button>
+        <Button type="submit">Add VideoUrl</Button>
       </form>
     </div>
   );
 };
 
 export default Cards;
-
-
-
-
-// an input box asking the user for the source 

@@ -8,7 +8,6 @@ import { Box } from "@chakra-ui/react";
 import LensShareComponent from "../components/lens";
 
 
-
 export default function Meeting() {
     const router = useRouter();
     const roomIdFromUrl = router.query.roomid?.toString() || "";

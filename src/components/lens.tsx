@@ -9,7 +9,6 @@ function LensShareComponent() {
   const [via, setVia] = useState('');
   const [title, setTitle] = useState('Share your post on Lens 🌿');
 
-
   return (
     <>
     <Box className='w-90 border-4 mx-40 p-4'>

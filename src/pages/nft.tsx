@@ -30,6 +30,7 @@ function App() {
 
     const network = await provider.getNetwork();
     console.log(network);
+    // contract deployed on Hyperspace testnet
     const nft = new ethers.Contract("0x983f1200Af39AC6095FF6DaD829c266ADC5B5Cbf", NFT, provider);
     console.log(nft);
     setNFT(nft)
@@ -130,9 +131,11 @@ function App() {
   }, [])
 
   return (
-    <Box>
+    <>
+    <h1 className='text-center text-2xl text-slate-200'>Generate an AI NFT for your community</h1>
+    <Box maxW="md" mx="auto">
       <Box className='form' p={4}>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className='flex flex-col justify-center'>
           <Input
             type="text"
             placeholder="Create a name..."
@@ -144,9 +147,10 @@ function App() {
             type="text"
             placeholder="Create a description..."
             onChange={(e) => setDescription(e.target.value)}
+            className='my-10'
           />
-          <Button mt={2} colorScheme="blue" type="submit" disabled={isWaiting}>
-            Create & Mint
+          <Button mt={2} colorScheme="blue" type="submit" disabled={isWaiting} >
+            Create AI NFT & Mint
           </Button>
         </form>
 
@@ -171,6 +175,7 @@ function App() {
         </Text>
       )}
     </Box>
+    </>
   );
 }
 

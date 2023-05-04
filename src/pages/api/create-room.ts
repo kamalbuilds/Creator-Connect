@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-console.log(process.env.API_KEY,'d');
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
