@@ -118,10 +118,7 @@ function App() {
     const signer = await provider.getSigner()
     const transaction = await nft.connect(signer).mint(tokenURI, { value: ethers.utils.parseUnits("1", "ether") })
     await transaction.wait();
-    const eventFilter = nft.filters.Transfer(null, signer.getAddress());
-    const events = await nft.queryFilter(eventFilter);
-    const mintedNFTAddress = events[0].args[2]; // Address of the minted NFT
-    console.log("Minted NFT Address:", mintedNFTAddress);
+
 
     console.log(transaction,"transaction");
   }

@@ -17,7 +17,7 @@ import {
     FcManager,
   } from 'react-icons/fc';
   import { GrPersonalComputer } from 'react-icons/gr';
-  import { SiLighthouse } from 'react-icons/si';
+  import { SiLighthouse , SiProbot} from 'react-icons/si';
   interface CardProps {
     heading: string;
     description: string;
@@ -78,7 +78,7 @@ import {
         <Container maxW={'5xl'} mt={12}>
           <Flex flexWrap="wrap" gridGap={6} justify="center">
             <Card
-                heading={'Build your Communities'}
+                heading={'Build & Grow your Community'}
                 icon={<Icon as={FcManager} w={10} h={10} />}
                 description={
                   'As a Creator Build your Communities by Scheduling Token-Gated Meetups'
@@ -102,10 +102,18 @@ import {
               href={'#'}
             />
             <Card
-              heading={'Lighthouse Powered Access'}
+              heading={'Lighthouse Powered Access Control'}
               icon={<Icon as={SiLighthouse} w={10} h={10} />}
               description={
-                'AI NFT for your Community to access your content.'
+                'Apply access control to your Files uploaded to FVM'
+              }
+              href={'#'}
+            />
+            <Card
+              heading={'AI NFT for your Community'}
+              icon={<Icon as={SiProbot} w={10} h={10} />}
+              description={
+                'Get an AI NFT for your Community to access your content.'
               }
               href={'#'}
             />

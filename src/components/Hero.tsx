@@ -10,6 +10,11 @@ import {
   } from '@chakra-ui/react';
 import Community from "../asset/community.png";
 import StaticImage  from 'next/image';
+import creator from "../asset/creator.png";
+import Image from 'next/image';
+import audience from "../asset/audience.png";
+import meeting from "../asset/meeting.png";
+import gated from "../asset/gated.png";
 
   export default function Hero() {
     return (
@@ -46,12 +51,12 @@ import StaticImage  from 'next/image';
               Learn more
             </Button>
           </Stack>
-          <Flex w={'full'}>
-            <StaticImage src={Community}
-              alt='community'
-              className='h-64 w-64'
-            />
+          <Flex w={'full'} className='space-x-10' >
+            <Image src={gated} alt='gated' className='h-80 w-80'/>
+            <Image src={creator} alt='creator' className='h-80 w-64'/>
+            <Image src={audience} alt='audience' className='h-80 w-80'/>
           </Flex>
+          <Image src={meeting} alt='meeting' className='h-80 w-80'/>
         </Stack>
       </Container>
     );
