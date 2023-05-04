@@ -38,9 +38,8 @@ Code- https://github.com/legendarykamal/Creator-Connect/tree/master/src/componen
 
 Testing of Minting of NFT - https://hyperspace.filfox.info/en/tx/0x7f638f73e4ca85bd14f6539195a3a31f884a90706ccbc71ed428398bca419349
 
-<div class="center">
-  https://user-images.githubusercontent.com/95926324/236297724-50b74895-452f-4d34-a2c3-8807ad0a13c2.mp4
-</div>
+https://user-images.githubusercontent.com/95926324/236297724-50b74895-452f-4d34-a2c3-8807ad0a13c2.mp4
+
 
 How CreatorConnect is More Effective than YouTube ?
 
