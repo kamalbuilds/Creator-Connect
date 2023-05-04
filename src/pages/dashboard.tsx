@@ -26,17 +26,9 @@ const App = () => {
 
   const [roomId, setRoomId] = useState("");
   const [displayNameText, setDisplayNameText] = useState("Guest");
-  const [projectId, setProjectId] = useState(
-    process.env.NEXT_PUBLIC_PROJECT_ID || ""
-  );
+  const [projectId, setProjectId] = useState( process.env.NEXT_PUBLIC_PROJECT_ID || "");
   const [accessToken, setAccessToken] = useState("");
   // accessToken is used for creating token-gated rooms
-  console.log(
-    process.env.API_KEY,
-    process.env.NEXT_PUBLIC_PROJECT_ID,
-    projectId,
-    "d"
-  );
 
   const { initialize } = useHuddle01();
   const { joinLobby } = useLobby();
@@ -137,9 +129,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    // its preferable to use env vars to store projectId
     initialize(projectId || "");
-    console.log(projectId, "dsds");
   }, []);
 
   return (

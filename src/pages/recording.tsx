@@ -54,7 +54,7 @@ const Cards = () => {
       videoUrl: "https://gateway.lighthouse.storage/ipfs/QmdQN5R6F8mU4X8qZ3bUXCnCRNKCeaRZ1L2YjPKrbaEmh8",
     },
     {
-      heading: "Card 3",
+      heading: "Huddle Meetup",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam luctus diam auctor, varius est sit amet, dapibus tortor.",
       imageUrl: "https://huddle01.com/_next/image?url=%2Fimages%2FAbout%2FTeam%2Fambesh.jpg&w=384&q=100",
@@ -78,7 +78,7 @@ const Cards = () => {
           />
         ))}
         <Card
-          heading="Custom Card"
+          heading="Your Recording"
           description={currentVideoUrl}
           imageUrl="https://media.licdn.com/dms/image/C560BAQF_MO45e6VgoA/company-logo_200_200/0/1668174998436?e=2147483647&v=beta&t=LsEz-6sJFXTfOhgxRZCQHDk7TH0jy2TBPFLsexA5KI4"
           videoUrl={currentVideoUrl}
@@ -90,7 +90,7 @@ const Cards = () => {
           value={videoUrl}
           onChange={handleInputChange}
         />
-        <Button type="submit">Add VideoUrl</Button>
+        <Button type="submit">Check VideoUrl</Button>
       </form>
     </div>
   );
