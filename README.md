@@ -24,7 +24,11 @@ The CreatorConnect platform is built using the following technologies:
 
 * Huddle01 SDK: Used for effortless recording and uploading of videos or podcasts onto the platform.
 
-* Lighhouse : Encryption of the data.
+* Lighhouse SDK: Storing on FVM , Encryption of the data and Setting Access Control for it.
+
+Store files on IPFS and Filecoin and Provide the Creator with Encryption & Access control functionality to Encrypt the Video and document.
+
+Code- https://github.com/legendarykamal/Creator-Connect/tree/master/src/components/lighthouse
 
 * * FVM : NFT Contract Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
 
