@@ -2,6 +2,8 @@
   <img src="https://user-images.githubusercontent.com/95926324/235373288-1b9639aa-e9cb-4b9b-ba8d-2bd8310fe3be.png" alt="logo">
 </div>
 
+Problem Statement- In an oversaturated YouTube landscape, new creators face significant challenges in growing their communities and monetizing their content through traditional ad-based models. The CreatorConnect platform aims to address these issues by providing a solution that offers diversified monetization opportunities, exclusive and premium content offerings, enhanced community engagement, and decentralized content storage. By doing so, CreatorConnect empowers creators to overcome the limitations of existing platforms, build loyal fan bases, and establish sustainable careers in the digital realm.
+
 Introducing the "CreatorConnect" platform, an innovative solution that empowers creators to easily create and build their community. By combining the features of pay-per-view and an online event platform, we offer creators a comprehensive suite of tools to monetize their content and engage with their audience.
 
 Features
