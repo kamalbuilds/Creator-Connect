@@ -14,6 +14,8 @@ An innovative solution that empowers creators to easily create and build their c
 
 * AI generated NFT 🖼️: For giving access to your community.
 
+<img src="https://user-images.githubusercontent.com/95926324/236307435-47cb8d33-d0f6-47b3-9415-fc9d589aa720.png" alt="ai" width="200">
+
 * Pay-per-view functionality 💸: Creators can monetize their content by implementing a pay-per-view model, where viewers pay a fee to access their exclusive videos or podcasts. This feature is seamlessly integrated into the platform, enabling creators to earn revenue directly from their content.
 
 * NFT gated event system 🎫: Creators can organize interactive events, such as virtual meetings or live streams, where their community members can engage with them in real-time. Access to these events is token-gated, meaning attendees must hold specific NFTs representing event tickets or memberships. This fosters community engagement and adds an element of exclusivity.
@@ -24,18 +26,29 @@ An innovative solution that empowers creators to easily create and build their c
 
 ![CreatorConnect Preview](https://user-images.githubusercontent.com/95926324/235943778-80a2ae6c-658d-40f1-9608-216f118fddc8.png)
 
-## Tech Stack
+## Technologies Used
 
 The CreatorConnect platform is built using the following technologies:
 
 * Huddle01 SDK: Used for effortless recording and uploading of videos or podcasts onto the platform.
+  
+  A dashboard provided to the creator to perform various SDK functions- [Dashboard Code](https://github.com/legendarykamal/Creator-Connect/blob/master/src/pages/dashboard/%5Bindex%5D.tsx)
+  
+  Used to create TokenGated room - [Token Gated Code](https://github.com/legendarykamal/Creator-Connect/blob/master/src/components/TokenGated.tsx)
+
+  Recording Video by creator - [Recording code on Dashboard](https://github.com/legendarykamal/Creator-Connect/blob/master/src/pages/dashboard/%5Bindex%5D.tsx#L61)
+
+* Huddle01 iframe : For Recording Meetings by the Creators
+  [Code for Iframe](https://github.com/legendarykamal/Creator-Connect/blob/master/src/pages/%5Broomid%5D.tsx)
 
 * Lighthouse SDK: Storing on FVM, Encryption of the data, and Setting Access Control for files straight from the Dapp. Store files on Filecoin and provide the Creator with Encryption & Access control functionality to Encrypt the Video and document.
 
-Code: [GitHub Repository](https://github.com/legendarykamal/Creator-Connect/tree/master/src/components/lighthouse)
+  Code: [Lighthouse Code Implementation](https://github.com/legendarykamal/Creator-Connect/tree/master/src/components/lighthouse)
 
 * FVM: NFT Contract Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
 
+  Code: [Creator NFT Deployed on Hyperspace FVM Testnet](https://github.com/legendarykamal/Creator-Connect/blob/master/contract/contracts/CreatorNFT.sol)
+  
 * Deployed link: [CreatorConnect on Hyperspace](https://explorer.glif.io/address/0x983f1200Af39AC6095FF6DaD829c266ADC5B5Cbf/?network=hyperspacenet)
 
 Testing of Minting of NFT: [Minting Nft Transaction on Hyperspace](https://hyperspace.filfox.info/en/tx/0x7f638f73e4ca85bd14f6539195a3a31f884a90706ccbc71ed428398bca419349)
