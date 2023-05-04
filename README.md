@@ -8,13 +8,15 @@ Introducing the "CreatorConnect" platform, an innovative solution that empowers 
 
 Features
 
+* AI generated NFT : For giving access to your community.
+
 * Pay-per-view functionality: Creators can monetize their content by implementing a pay-per-view model, where viewers pay a fee to access their exclusive videos or podcasts. This feature is seamlessly integrated into the platform, enabling creators to earn revenue directly from their content.
 
 * NFT gated event system: Creators can organize interactive events, such as virtual meetings or live streams, where their community members can engage with them in real-time. Access to these events is token gated, meaning attendees must hold specific NFTs representing event tickets or memberships. This fosters community engagement and adds an element of exclusivity.
 
 * Secure storage on Filecoin: The platform securely stores creators' content on Filecoin, ensuring durability, accessibility, and protection against content takedowns or policy changes on centralized platforms.
 
-* Share directly to Lenster
+* Lens Intregration ~ Share to Lenster directly.
 
 ![image](https://user-images.githubusercontent.com/95926324/235943778-80a2ae6c-658d-40f1-9608-216f118fddc8.png)
 
@@ -24,17 +26,21 @@ The CreatorConnect platform is built using the following technologies:
 
 * Huddle01 SDK: Used for effortless recording and uploading of videos or podcasts onto the platform.
 
-* Lighhouse SDK: Storing on FVM , Encryption of the data and Setting Access Control for it.
+* Lighhouse SDK: Storing on FVM , Encryption of the data and Setting Access Control for files straight from the Dapp.
 
-Store files on IPFS and Filecoin and Provide the Creator with Encryption & Access control functionality to Encrypt the Video and document.
+Store files on Filecoin and Provide the Creator with Encryption & Access control functionality to Encrypt the Video and document.
 
 Code- https://github.com/legendarykamal/Creator-Connect/tree/master/src/components/lighthouse
 
-* * FVM : NFT Contract Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
+* FVM : NFT Contract Deployed on the Filecoin Virtual Machine (FVM) to mint NFTs for token-gated events and ensure security and authenticity.
 
 * Deployed link - https://explorer.glif.io/address/0x983f1200Af39AC6095FF6DaD829c266ADC5B5Cbf/?network=hyperspacenet
 
 Testing of Minting of NFT - https://hyperspace.filfox.info/en/tx/0x7f638f73e4ca85bd14f6539195a3a31f884a90706ccbc71ed428398bca419349
+
+<div class="center">
+  https://user-images.githubusercontent.com/95926324/236297724-50b74895-452f-4d34-a2c3-8807ad0a13c2.mp4
+</div>
 
 How CreatorConnect is More Effective than YouTube ?
 
