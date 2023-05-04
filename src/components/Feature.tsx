@@ -105,7 +105,7 @@ import {
               heading={'Lighthouse Powered Access'}
               icon={<Icon as={SiLighthouse} w={10} h={10} />}
               description={
-                'Apply Access Controls to your Files'
+                'AI NFT for your Community to access your content.'
               }
               href={'#'}
             />

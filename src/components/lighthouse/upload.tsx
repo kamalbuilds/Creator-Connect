@@ -2,7 +2,7 @@
 import React, {useRef} from "react";
 import { useState } from "react";
 import lighthouse from '@lighthouse-web3/sdk';
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import {
   useAccount,
   useContract,
@@ -10,10 +10,10 @@ import {
   useSigner,
   useBalance,
 } from "wagmi";
-import { createEvent } from "react-dom/test-utils";
 
 export default function Upload() {
     const encryptedfileInputRef = useRef(null);
+    const toast = useToast();
     const [sig, setSig] = useState(null);
     const [file , setFile ] = useState<any>()
     const provider = useProvider();
@@ -53,7 +53,13 @@ export default function Upload() {
       );
       console.log('File Status:', output);
       alert("File uploaded successfully", output.data.Hash);
-
+      toast({
+        title: "File uploaded successfully",
+        description: "Visit at https://gateway.lighthouse.storage/ipfs/" + output.data.Hash,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
       console.log('Visit at https://gateway.lighthouse.storage/ipfs/' + output.data.Hash);
     };
     
@@ -70,6 +76,13 @@ export default function Upload() {
         sig.signedMessage as string,
         progressCallback
       );
+      toast({
+        title: "File uploaded successfully",
+        description: "Visit at https://gateway.lighthouse.storage/ipfs/" + response.data.Hash,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
       alert("File uploaded successfully", response.data.Hash);
       console.log(response.data.Hash);
 

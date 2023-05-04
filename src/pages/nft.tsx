@@ -4,14 +4,14 @@ import { NFTStorage, File } from 'nft.storage';
 import axios from 'axios';
 import { Box, Button, Input, Spinner, Image, Text, Link } from '@chakra-ui/react';
 import { ethers } from 'ethers';
-
+import { useToast } from '@chakra-ui/react';
 // ABIs
 import NFT from '../abis/CreatorNFT.json';
 
 // Config
 
-
 function App() {
+  const toast = useToast();
   const [provider, setProvider] = useState(null);
   const [account, setAccount] = useState(null);
   const [nft, setNFT] = useState(null);
@@ -63,7 +63,7 @@ function App() {
   const createImage = async () => {
     setMessage("Generating Image...")
 
-    // You can replace this with different model API's
+    // We can use different APIs to generate images
     const URL = `https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-2`
 
     // Send the request
@@ -87,7 +87,7 @@ function App() {
 
     const base64data = Buffer.from(data).toString('base64')
     const img = `data:${type};base64,` + base64data // <-- This is so we can render it on the page
-    setImage(img)
+    setImage(img);
 
     return data
   }

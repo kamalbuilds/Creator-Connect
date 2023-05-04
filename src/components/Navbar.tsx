@@ -7,12 +7,7 @@ import clogo from "../asset/clogo.png";
 import { Button } from '@chakra-ui/button';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount} from 'wagmi';
-
-const Links = [
-  { label: 'Dashboard', href: '/dashboard' },
-  { label: 'Nft', href: '/nft' },
-  { label: 'Recording', href: '/recording' },
-];
+import { useState, useEffect} from 'react';
 
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
@@ -28,12 +23,27 @@ const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   </Link>
 );
 
+
+
 export default function Navbar() {
+  const { address, isConnecting, isDisconnected } = useAccount();
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+  const [dashboardLink, setDashboardLink] = useState('');
 
-  const { address, isConnecting, isDisconnected } = useAccount()
+  useEffect(() => {
+    if (address) {
+      setDashboardLink(`/dashboard/${address}`);
+    }
+  }, [address]);
+
+  const Links = [
+    { label: 'Dashboard', href: dashboardLink},
+    { label: 'Nft', href: '/nft' },
+    { label: 'Recording', href: '/recording' },
+  ];
+
   console.log(address, 'address');
   return (
     <>

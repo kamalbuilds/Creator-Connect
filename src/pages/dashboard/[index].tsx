@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useEventListener, useHuddle01 } from "@huddle01/react";
 import { Audio, Video } from "@huddle01/react/components";
+import { Box, Flex, HStack, Link, Stack, useColorMode, useColorModeValue, useDisclosure, Avatar, Menu, MenuButton, MenuList, MenuDivider, MenuItem, Center } from '@chakra-ui/react';
 import { useEffect } from "react";
 import {
   useAudio,
@@ -13,15 +14,17 @@ import {
 } from "@huddle01/react/hooks";
 import axios from "axios";
 import { useDisplayName } from "@huddle01/react/app-utils";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 import Router from "next/router";
-import TokenGated from "../components/TokenGated";
-import { Box } from "@chakra-ui/react";
+import TokenGated from "../../components/TokenGated";
+import lighthouse from "@lighthouse-web3/sdk";
+import FileListButton from "../../components/lighthouse/FileListButton";
+import { useToast } from "@chakra-ui/react";
 
 const App = () => {
   // refs
   const videoRef = useRef<HTMLVideoElement>(null);
-
+  const toast = useToast();
   const { state, send } = useMeetingMachine();
 
   const [roomId, setRoomId] = useState("");
@@ -87,7 +90,13 @@ const App = () => {
         }
       );
       console.log(response.data.data);
-      alert(`"Iframe Created with roomId", ${response.data.data.roomId}`);
+      toast ({
+        title: "Iframe Created",
+        description: `RoomId: ${response.data.data.roomId}`,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+        });
       const roomId = response.data.data.roomId;
       console.log(roomId);
       Router.push(`/${roomId}`);
@@ -120,7 +129,13 @@ const App = () => {
   const handleCreateRoom = async () => {
     try {
       const response = await createRoom();
-      alert(`"Room Created with roomId", ${response.data.roomId}`);
+      toast ({
+        title: "Room Created",
+        description: `RoomId: ${response.data.roomId}`,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+       });
       setRoomId(response.data.roomId);
     } catch (error) {
       // Handle errors here
@@ -137,7 +152,7 @@ const App = () => {
       <div className="grid grid-cols-2">
         <div>
           <h1 className="text-2xl font-bold text-center">Dashboard</h1>
-          <Box className="p-4 bg-green-400 rounded-lg">
+          <Box className="p-4 bg-blue-400 rounded-lg">
             <h2 className="text-2xl">My Id</h2>
             <div className="break-words bg-gray-200 p-4 rounded-lg">
               <pre className="text-sm">
@@ -400,6 +415,16 @@ const App = () => {
           </div>
           <br />
           <TokenGated  />
+          <br/>
+          <Box bg={useColorModeValue('gray.100', 'gray.900')} p={8}>
+                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                <Flex alignItems={'center'}>
+                    <Stack direction={'row'} spacing={7}>
+                    <FileListButton />
+                    </Stack>
+                </Flex>
+                </Flex>
+           </Box>
         </div>
       </div>
     </>

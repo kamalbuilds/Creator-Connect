@@ -4,9 +4,11 @@ import { Input, Select, Button, Box} from "@chakra-ui/react";
 const tokenTypes = ["ERC20", "ERC721", "ERC1155", "SPL", "BEP20"];
 const chains = ["ETHEREUM", "COSMOS", "SOLANA", "TEZOS", "BSC"];
 const add = "0x4d224452801ACEd8B2F0aebE155379bb5D594381";
+import { useToast } from "@chakra-ui/react";
 
 export default function TokenGated() {
   const [roomId, setRoomId] = useState("");
+  const toast = useToast();
   const [title, setTitle] = useState("");
   const [tokenType, setTokenType] = useState("ERC20");
   const [chain, setChain] = useState("ETHEREUM");
@@ -31,7 +33,13 @@ export default function TokenGated() {
             },
         }
       );
-      alert("Room Created Successfully with roomId: "+response.data.data.roomId);
+      toast ({
+        title: "Token Gated Room Created Successfully",
+        description: "RoomId: "+response.data.data.roomId,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
       // Handle the response here
       setRoomId(response.data.data.roomId);
       console.log(response.data.data.roomId);

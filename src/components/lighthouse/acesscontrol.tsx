@@ -1,13 +1,14 @@
 import React from "react";
 import { ethers } from "ethers";
 import lighthouse from "@lighthouse-web3/sdk";
-import { Button, Box, Input, Select } from "@chakra-ui/react";
+import { Button, Box, Input, Select, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 
 function AccessControl() {
   const [cid, setCid] = React.useState("QmW5os2bHWSnHaNN7rEknUUog1hhNYc1MWSMjVCoUuaRjU");
   const [selectedChain, setSelectedChain] = useState("wallaby");
-
+  console.log(selectedChain)
+  const toast = useToast();
   const handleChainChange = (e : any) => {
     setSelectedChain(e.target.value);
   };
@@ -40,8 +41,9 @@ function AccessControl() {
   const applyAccessConditions = async (e: any) => {
     e.preventDefault();
     const aggregator = "([1])";
+    console.log(conditions,"cid");
     const { publicKey, signedMessage } = await encryptionSignature();
-
+    
     const response = await lighthouse.applyAccessCondition(
       publicKey,
       cid,
@@ -49,7 +51,13 @@ function AccessControl() {
       conditions,
       aggregator
     );
-
+    toast({
+      title: "Access Conditions applied successfully",
+      description: "Visit at https://gateway.lighthouse.storage/ipfs/" + response.data.cid,
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
     console.log(response);
   };
 
@@ -61,10 +69,30 @@ function AccessControl() {
     );
   };
 
+  const handleComparatorChange = (index: number, value: string) => {
+    setConditions((prevConditions) =>
+      prevConditions.map((condition, i) =>
+        i === index
+          ? { ...condition, returnValueTest: { ...condition.returnValueTest, comparator: value } }
+          : condition
+      )
+    );
+  };
+
+  const handleValueChange = (index: number, value: string) => {
+    setConditions((prevConditions) =>
+      prevConditions.map((condition, i) =>
+        i === index
+          ? { ...condition, returnValueTest: { ...condition.returnValueTest, value: value } }
+          : condition
+      )
+    );
+  };
+
   return (
     <div className="flex justify-center items-center my-4 mx-4">
       <Box maxW="lg" p="8" borderWidth="1px" borderRadius="lg" boxShadow="lg">
-        <h2 className="text-cyan-400 text-center">Apply Access Control</h2>
+        <h2 className="text-cyan-400 text-center">Apply Access Control to your Encrypted Files</h2>
         {conditions.map((condition, index) => (
           <div key={condition.id}>
             <div>
@@ -83,10 +111,10 @@ function AccessControl() {
                 value={selectedChain}
                 onChange={handleChainChange}
               >
-                <option value="wallaby">Wallaby</option>
                 <option value="testnet">Hyperspace</option>
-                <option value="testnet">Polygon</option>
-                <option value="testnet">Ethereum</option>
+                <option value="wallaby">Wallaby</option>
+                <option value="Polygon">Polygon</option>
+                <option value="Ethereum">Ethereum</option>
               </Select>
             </div>
             <div>
@@ -115,9 +143,36 @@ function AccessControl() {
                     )
                     }   
               >
-                <option value="wallaby">ERC-721</option>
-                <option value="testnet">ERC-20</option>
+                <option value="ERC721">ERC-721</option>
+                <option value="ERC20">ERC-20</option>
+                <option value="ERC1155">ERC-1155</option>
               </Select>
+            </div>
+            <div>
+              <label htmlFor={`returnValueTest-${index}`}>
+                Comparator with Value:
+              </label>
+              <div>
+                <Select
+                  id={`comparator-${index}`}
+                  value={condition.returnValueTest.comparator}
+                  onChange={(e) =>
+                    handleComparatorChange(index, e.target.value)
+                  }
+                >
+                  <option value=">=">{">="}</option>
+                  <option value="==">{"=="}</option>
+                  <option value="<=">{"<="}</option>
+                </Select>
+                <Input
+                  type="text"
+                  id={`value-${index}`}
+                  value={condition.returnValueTest.value}
+                  onChange={(e) =>
+                    handleValueChange(index, e.target.value)
+                  }
+                />
+              </div>
             </div>
             <div>
               <label htmlFor={`contractAddress-${index}`}>
