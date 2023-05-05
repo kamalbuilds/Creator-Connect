@@ -10,6 +10,8 @@ In an oversaturated YouTube landscape, new creators face significant challenges 
 ## Introducing the "CreatorConnect" Platform
 An innovative solution that empowers creators to easily create and build their community. By combining the features of pay-per-view and an online event platform, we offer creators a comprehensive suite of tools to monetize their content and engage with their audience.
 
+https://user-images.githubusercontent.com/95926324/236297724-50b74895-452f-4d34-a2c3-8807ad0a13c2.mp4
+
 ## Features
 
 * <img src="https://user-images.githubusercontent.com/95926324/236307435-47cb8d33-d0f6-47b3-9415-fc9d589aa720.png" alt="ai" width="20"> generated NFT 🖼️: For giving access to your community.
@@ -51,7 +53,6 @@ The CreatorConnect platform is built using the following technologies:
 
 Testing of Minting of NFT: [Minting Nft Transaction on Hyperspace](https://hyperspace.filfox.info/en/tx/0x7f638f73e4ca85bd14f6539195a3a31f884a90706ccbc71ed428398bca419349)
 
-https://user-images.githubusercontent.com/95926324/236297724-50b74895-452f-4d34-a2c3-8807ad0a13c2.mp4
 
 ## How CreatorConnect is More Effective than YouTube?
 
